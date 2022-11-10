@@ -1,7 +1,8 @@
-from vk_api import VkApi
-from vk_api.vk_api import VkApiMethod
 import networkx as nx
 import matplotlib.pyplot as plt
+from vk_api import VkApi
+from vk_api.vk_api import VkApiMethod
+
 
 def auth_handler():
     # Code of two step auth
@@ -12,7 +13,7 @@ def auth_handler():
     return key, remember_device
 
 
-def authorization():
+def authorization() -> VkApi:
     with open('.env') as file:
         lines = file.readlines()
     
@@ -26,7 +27,7 @@ def authorization():
     return vk_session.get_api()
 
 
-def create_friends_of_friends_tree(vk_client: VkApiMethod):
+def create_friends_of_friends_tree(vk_client: VkApiMethod) -> None:
     used_id = dict()
     current_user_id = vk_client.users.get()[0].get('id')
     # print(vk_client.friends.getLists(2004762))
