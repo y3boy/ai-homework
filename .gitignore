@@ -1,6 +1,7 @@
 *.env
 .vscode
 vk_config.v2.json
+_.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
